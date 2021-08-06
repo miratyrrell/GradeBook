@@ -29,22 +29,36 @@ namespace GradeBook
             Console.WriteLine("Enter student's name to see their Grade Book: (Scott, Mary or Jack)");
             string studentName = Console.ReadLine();
 
+            Book selected = null;
+
             //if statement showing statistics for each student
-            if(studentName == "Scott")
+            if (studentName == "Scott")
             {
-                gradeBook.ShowStatistics();
+                selected = gradeBook;
             }
             else if(studentName == "Mary")
             {
-                gradeBook2.ShowStatistics();
+                selected = gradeBook2;
             }
             else if(studentName == "Jack")
             {
-                gradeBook3.ShowStatistics();
+                selected = gradeBook3;
             }
             else
             {
                 Console.WriteLine("I am sorry, I don't recognise this name!");
+            }
+
+            if (selected != null)
+            {
+                var name = selected.Name;
+                Console.WriteLine($"{name}");
+
+                var stats = selected.GetStatistics();
+
+                Console.WriteLine($"The highest grade is {stats.High:N2}");
+                Console.WriteLine($"The lowest grade is {stats.Low:N2}");
+                Console.WriteLine($"The average grade is {stats.Average:N2}");
             }
         }
     }

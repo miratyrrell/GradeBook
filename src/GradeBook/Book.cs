@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-    class Book
+    public class Book
     {
         public Book(string name)
         {
@@ -17,30 +17,31 @@ namespace GradeBook
         }
 
         //Creating a method to Show Statistics - highest, lowest and average grades.
-        public void ShowStatistics()
+        public Statistics GetStatistics()
         {
-            var result = 0.0;
-            var highGrade = double.MinValue;
-            var lowGrade = double.MaxValue;
+            var result = new Statistics();
+
+            result.Average = 0.0;
+            result.High = double.MinValue;
+            result.Low = double.MaxValue;
             
-            foreach(var number in grades)
+            foreach(var grade in grades)
             {
-                highGrade = Math.Max(number, highGrade);
-                lowGrade = Math.Min(number, lowGrade);
-                result += number;
+                result.High = Math.Max(grade, result.High);
+                result.Low = Math.Min(grade, result.Low);
+                result.Average += grade;
             }
 
-            result /= grades.Count;
+            result.Average /= grades.Count;
 
-            //N2 - for adding two numbers after decimal point.
-            Console.WriteLine($"{name}");
-            Console.WriteLine($"The highest grade is {highGrade:N2}");
-            Console.WriteLine($"The lowest grade is {lowGrade:N2}");
-            Console.WriteLine($"The average grade is {result:N2}");
+            return result;
         }
 
         //all the private members together at the bottom of the class.
         private List<double> grades;
-        private string name;
+        // this value cannot be changed after object initialisation 'readonly' keyword
+        private readonly string name;
+        //property - different to a variable. 
+        public string Name { get => name; }
     }
 }
