@@ -32,7 +32,8 @@ namespace GradeBook
             Book selected = null;
 
             //if statement showing statistics for each student
-
+            //Scott's name could be spelled in any way , all case sensitivity will be ignored
+            //The rest of the names have to be spelled either beginning with small or capital letter
             if (string.Equals(studentName, "Scott", StringComparison.OrdinalIgnoreCase))
             {
                 selected = gradeBook;
