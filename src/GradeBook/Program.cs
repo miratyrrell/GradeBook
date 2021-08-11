@@ -32,15 +32,16 @@ namespace GradeBook
             Book selected = null;
 
             //if statement showing statistics for each student
-            if (studentName == "Scott")
+
+            if (string.Equals(studentName, "Scott", StringComparison.OrdinalIgnoreCase))
             {
                 selected = gradeBook;
             }
-            else if(studentName == "Mary")
+            else if(studentName == "Mary" || studentName == "mary")
             {
                 selected = gradeBook2;
             }
-            else if(studentName == "Jack")
+            else if(studentName == "Jack" || studentName == "jack")
             {
                 selected = gradeBook3;
             }

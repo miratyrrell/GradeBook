@@ -39,9 +39,10 @@ namespace GradeBook
 
         //all the private members together at the bottom of the class.
         private List<double> grades;
-        // this value cannot be changed after object initialisation 'readonly' keyword
-        private readonly string name;
+        // this value cannot be changed after object initialisation if we use 'readonly' keyword
+        //readonly removed for test purposes, now we can set a new name
+        private string name;
         //property - different to a variable. 
-        public string Name { get => name; }
+        public string Name { get => name; set => name = value; }
     }
 }
