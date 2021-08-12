@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace GradeBook
 {
@@ -7,44 +6,72 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            //create a gradebook and add grades for each student
             var gradeBook = new Book("Scott's Grade Book");
-            gradeBook.AddGrade(89.1);
-            gradeBook.AddGrade(90.5);
-            gradeBook.AddGrade(77.5);
-            gradeBook.AddGrade(69.5);
 
             var gradeBook2 = new Book("Mary's Grade Book");
-            gradeBook2.AddGrade(65.1);
-            gradeBook2.AddGrade(80.5);
-            gradeBook2.AddGrade(97.5);
-            gradeBook2.AddGrade(75.5);
 
             var gradeBook3 = new Book("Jack's Grade Book");
-            gradeBook3.AddGrade(78.3);
-            gradeBook3.AddGrade(80.9);
-            gradeBook3.AddGrade(67.1);
-            gradeBook3.AddGrade(55.7);
 
-            Console.WriteLine("Enter student's name to see their Grade Book: (Scott, Mary or Jack)");
+
+            Console.WriteLine("Enter student's name: (Scott, Mary or Jack)");
             string studentName = Console.ReadLine();
 
             Book selected = null;
 
-            //if statement showing statistics for each student
-            //Scott's name could be spelled in any way , all case sensitivity will be ignored
-            //The rest of the names have to be spelled either beginning with small or capital letter
+            /*if statement showing statistics for each student.
+            Scott's name could be spelled in any way, all case sensitivity will be ignored.
+            The rest of the names have to be spelled either beginning with small or capital letter*/
             if (string.Equals(studentName, "Scott", StringComparison.OrdinalIgnoreCase))
             {
                 selected = gradeBook;
+                /*When we enter input it will be a string.
+                To turn it into a double we need to use double.Parse static method*/
+                while (true)
+                {
+                    Console.WriteLine("Enter a grade or 'q' to quit and calculate lowest, highest, and average grades.");
+                    var input = Console.ReadLine();
+
+                    if (input == "q")
+                    {
+                        break;
+                    }
+                    var grade = double.Parse(input);
+                    gradeBook.AddGrade(grade);
+                }
             }
             else if(studentName == "Mary" || studentName == "mary")
             {
                 selected = gradeBook2;
+
+                while (true)
+                {
+                    Console.WriteLine("Enter a grade or 'q' to quit and calculate lowest, highest, and average grades.");
+                    var input = Console.ReadLine();
+
+                    if (input == "q")
+                    {
+                        break;
+                    }
+                    var grade = double.Parse(input);
+                    gradeBook2.AddGrade(grade);
+                }
             }
             else if(studentName == "Jack" || studentName == "jack")
             {
                 selected = gradeBook3;
+
+                while (true)
+                {
+                    Console.WriteLine("Enter a grade or 'q' to quit and calculate lowest, highest, and average grades.");
+                    var input = Console.ReadLine();
+
+                    if (input == "q")
+                    {
+                        break;
+                    }
+                    var grade = double.Parse(input);
+                    gradeBook3.AddGrade(grade);
+                }
             }
             else
             {
