@@ -35,8 +35,23 @@ namespace GradeBook
                     {
                         break;
                     }
-                    var grade = double.Parse(input);
-                    gradeBook.AddGrade(grade);
+
+                    try
+                    {
+                        var grade = double.Parse(input);
+                        gradeBook.AddGrade(grade);
+                    }
+
+                    //we are going to try to catch the error/exception and give a message to the user
+                    catch(ArgumentException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    catch(FormatException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
             else if(studentName == "Mary" || studentName == "mary")
@@ -52,8 +67,15 @@ namespace GradeBook
                     {
                         break;
                     }
-                    var grade = double.Parse(input);
-                    gradeBook2.AddGrade(grade);
+                    try
+                    {
+                        var grade = double.Parse(input);
+                        gradeBook2.AddGrade(grade);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
             else if(studentName == "Jack" || studentName == "jack")
@@ -69,8 +91,15 @@ namespace GradeBook
                     {
                         break;
                     }
-                    var grade = double.Parse(input);
-                    gradeBook3.AddGrade(grade);
+                    try
+                    {
+                        var grade = double.Parse(input);
+                        gradeBook3.AddGrade(grade);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
             else

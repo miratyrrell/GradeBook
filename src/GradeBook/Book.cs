@@ -49,7 +49,9 @@ namespace GradeBook
             }
             else
             {
-                Console.WriteLine("Invalid Value");
+                /*when we run the application there will be an error
+                here we specify where the error occured*/
+                throw new ArgumentException($"Invalid {nameof(grade)}");
             }
             
         }
